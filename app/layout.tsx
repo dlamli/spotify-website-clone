@@ -4,6 +4,8 @@ import "@fontsource-variable/figtree";
 
 import "./globals.css";
 import { SideBar } from "@/components";
+import { SupabaseProvider } from "@/providers";
+import { UserProvider } from "@/providers/UserProvider";
 
 export const metadata: Metadata = {
   title: "Spotify Clone App",
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-figtree antialiased`}>
-        <SideBar>{children}</SideBar>
+        <SupabaseProvider>
+          <UserProvider>
+            <SideBar>{children}</SideBar>
+          </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );
