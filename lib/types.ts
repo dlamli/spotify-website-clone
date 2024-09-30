@@ -4,34 +4,41 @@ import { IconType } from "react-icons";
 import Stripe from "stripe";
 import { User } from "@supabase/auth-helpers-nextjs";
 
+// Sidebar.tsx
 export type SidebarProps = {
   children: React.ReactNode;
 };
 
+// Box.tsx
 export type BoxProps = {
   children: React.ReactNode;
   className?: string;
 };
 
+// HeaderDesktop.tsx
 export type HeaderDesktopProps = {
   router: AppRouterInstance;
 };
 
+// ListItem.tsx
 export type ListItemProps = {
   image: string;
   name: string;
   href: string;
 };
 
+// Button.tsx
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   // Button Props ...
 }
 
+// Header.tsx
 export type HeaderProps = {
   children: React.ReactNode;
   className?: string;
 };
+
 export type SidebarItemProps = {
   icon: IconType;
   label: string;
@@ -43,8 +50,7 @@ export type SupabaseProviderProps = {
   children: React.ReactNode;
 };
 
-//Hooks Types
-
+// UserProvider.tsx
 export type UserDetails = {
   id: string;
   first_name: string;
@@ -85,7 +91,7 @@ export type Subscription = {
   status?: Stripe.Subscription.Status;
   metadata?: Stripe.Metadata;
   price_id?: string;
-  quantity?: string;
+  quantity?: number;
   cancel_at_period_end?: boolean;
   created: string;
   current_period_start: string;
@@ -98,6 +104,11 @@ export type Subscription = {
   prices?: Price;
 };
 
+export type UserProviderProps = {
+  children: React.ReactNode;
+};
+
+// UserContext.tsx
 export type UserContextType = {
   accessToken: string | null;
   user: User | null;
@@ -106,10 +117,23 @@ export type UserContextType = {
   subscription: Subscription | null;
 };
 
+// UserContextProvider.tsx
 export type Props = {
   [propName: string]: any;
 };
 
-export type UserProviderProps = {
+// Modal.tsx
+export type ModalProps = {
+  isOpen: boolean;
+  onChange: (open: boolean) => void;
+  title: string;
+  description: string;
   children: React.ReactNode;
+};
+
+// useAuthModal.tsx
+export type AuthModalStore = {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
 };
