@@ -137,3 +137,14 @@ export type AuthModalStore = {
   onOpen: () => void;
   onClose: () => void;
 };
+
+// useUploadModal.tsx
+export type UploadModalStore = {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+};
+
+//Input.tsx
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
