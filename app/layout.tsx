@@ -6,17 +6,21 @@ import "./globals.css";
 import { SideBar } from "@/components";
 import { ModalProvider, SupabaseProvider, ToasterProvider } from "@/providers";
 import { UserProvider } from "@/providers/UserProvider";
+import { getSongs } from "@/actions/getSongs";
+import { getSongsByUserId } from "@/actions/getSongsByUserId";
 
 export const metadata: Metadata = {
   title: "Spotify Clone App",
   description: "Spotify Listen music",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userSongs = await getSongsByUserId();
+
   return (
     <html lang="en">
       <body className={`font-figtree antialiased`}>
@@ -24,7 +28,7 @@ export default function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-            <SideBar>{children}</SideBar>
+            <SideBar songs={userSongs}>{children}</SideBar>
           </UserProvider>
         </SupabaseProvider>
       </body>

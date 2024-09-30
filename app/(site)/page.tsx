@@ -1,6 +1,10 @@
+import { getSongs } from "@/actions/getSongs";
 import { Header, ListItem } from "@/components";
+import { DiVim } from "react-icons/di";
+import { PageContent } from "@/app/(site)/components";
 
-export default function Home() {
+export default async function Home() {
+  const songs = await getSongs();
   return (
     <div
       className="
@@ -66,7 +70,7 @@ export default function Home() {
             Newest Songs
           </h1>
         </div>
-        <div>List of Songs</div>
+        <PageContent songs={songs} />
       </div>
     </div>
   );

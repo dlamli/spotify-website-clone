@@ -7,6 +7,7 @@ import { User } from "@supabase/auth-helpers-nextjs";
 // Sidebar.tsx
 export type SidebarProps = {
   children: React.ReactNode;
+  songs: Song[];
 };
 
 // Box.tsx
@@ -148,3 +149,46 @@ export type UploadModalStore = {
 //Input.tsx
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+export type Song = {
+  id: string;
+  user_id: string;
+  author: string;
+  title: string;
+  song_path: string;
+  image_path: string;
+};
+
+// PageContent.tsx
+export type PageContentProps = {
+  songs: Song[];
+};
+
+// SongItem.tsx
+export type SongItemProps = {
+  data: Song;
+  onClick: (id: string) => void;
+};
+
+// Library.tsx
+export type LibraryProps = {
+  songs: Song[];
+};
+
+// MediaItem.tsx
+export type MediaItemProps = {
+  data: Song;
+  onClick?: (id: string) => void;
+};
+
+// Search
+export type SearchProps = {
+  searchParams: {
+    title: string;
+  };
+};
+
+// SearchContent.tsx
+export type SearchContentProps = {
+  songs: Song[];
+};

@@ -7,7 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import { HiHome } from "react-icons/hi";
 import { Box, Library, SidebarItem } from "@/components";
 
-export const SideBar: React.FC<SidebarProps> = ({ children }) => {
+export const SideBar: React.FC<SidebarProps> = ({ children, songs }) => {
   const pathName = usePathname();
 
   const routes = useMemo(
@@ -55,7 +55,7 @@ export const SideBar: React.FC<SidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="overflow-y-auto h-full">
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
       <main
