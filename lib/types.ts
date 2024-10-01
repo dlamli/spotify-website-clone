@@ -202,3 +202,24 @@ export type LikeButtonProps = {
 export type LikedContentProps = {
   songs: Song[];
 };
+
+// usePlayer.tsx
+export type PlayerStore = {
+  ids: string[];
+  activeId?: string;
+  setId: (id: string) => void;
+  setIds: (ids: string[]) => void;
+  reset: () => void;
+};
+
+// PlayerContent.tsx
+export type PlayerContentProps = {
+  song: Song;
+  songUrl: string;
+};
+
+// Slider.tsx
+export type SliderProps = {
+  value?: number;
+  onChange?: (value: number) => void;
+};

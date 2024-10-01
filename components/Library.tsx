@@ -1,6 +1,6 @@
 "use client";
 
-import { useUploadModal, useAuthModal } from "@/hooks";
+import { useUploadModal, useAuthModal, useOnPlay } from "@/hooks";
 import { useUser } from "@/hooks/useUser";
 import { LibraryProps } from "@/lib/types";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -10,7 +10,9 @@ import { MediaItem } from "@/components";
 export const Library: React.FC<LibraryProps> = ({ songs }) => {
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
-  const { user, subscription } = useUser();
+  const { user } = useUser();
+
+  const { handlePlay } = useOnPlay(songs);
   const handleClick = () => {
     //Handle upload later
     if (!user) return authModal.onOpen();
@@ -59,7 +61,11 @@ export const Library: React.FC<LibraryProps> = ({ songs }) => {
           px-3"
       >
         {songs.map((song) => (
-          <MediaItem key={song.id} onClick={() => {}} data={song} />
+          <MediaItem
+            key={song.id}
+            onClick={(id: string) => handlePlay(id)}
+            data={song}
+          />
         ))}
       </div>
     </div>
