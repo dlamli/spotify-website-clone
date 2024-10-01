@@ -6,8 +6,7 @@ import "./globals.css";
 import { SideBar } from "@/components";
 import { ModalProvider, SupabaseProvider, ToasterProvider } from "@/providers";
 import { UserProvider } from "@/providers/UserProvider";
-import { getSongs } from "@/actions/getSongs";
-import { getSongsByUserId } from "@/actions/getSongsByUserId";
+import { getSongsByUserId } from "@/actions";
 
 export const metadata: Metadata = {
   title: "Spotify Clone App",

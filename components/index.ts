@@ -5,6 +5,7 @@ export * from "./Header";
 export * from "./HeaderTop";
 export * from "./Input";
 export * from "./Library";
+export * from "./LikeButton";
 export * from "./ListItem";
 export * from "./MediaItem";
 export * from "./Modal";

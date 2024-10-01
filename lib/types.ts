@@ -192,3 +192,13 @@ export type SearchProps = {
 export type SearchContentProps = {
   songs: Song[];
 };
+
+// LikeButton.tsx
+export type LikeButtonProps = {
+  songId: string;
+};
+
+// LikedContent.tsx
+export type LikedContentProps = {
+  songs: Song[];
+};

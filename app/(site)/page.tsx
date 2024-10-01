@@ -1,6 +1,5 @@
 import { getSongs } from "@/actions/getSongs";
 import { Header, ListItem } from "@/components";
-import { DiVim } from "react-icons/di";
 import { PageContent } from "@/app/(site)/components";
 
 export default async function Home() {
