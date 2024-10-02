@@ -4,6 +4,7 @@ import { PageContent } from "@/app/(site)/components";
 
 export default async function Home() {
   const songs = await getSongs();
+
   return (
     <div
       className="
