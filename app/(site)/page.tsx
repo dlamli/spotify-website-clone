@@ -2,6 +2,8 @@ import { getSongs } from "@/actions/getSongs";
 import { Header, ListItem } from "@/components";
 import { PageContent } from "@/app/(site)/components";
 
+export const revalidate = 0;
+
 export default async function Home() {
   const songs = await getSongs();
 

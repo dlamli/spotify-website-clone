@@ -83,7 +83,19 @@ export type Price = {
   interval_count?: number;
   trial_period_days?: number | null;
   metadata?: Stripe.Metadata;
-  product?: Product;
+  products?: Product;
+};
+
+export interface ProductWithPrice extends Product {
+  prices?: Price[];
+}
+
+export type ModalProviderProps = {
+  products: ProductWithPrice[];
+};
+
+export type SubscribeModalProps = {
+  products: ProductWithPrice[];
 };
 
 export type Subscription = {

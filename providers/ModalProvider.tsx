@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 
 import { AuthModal, UploadModal } from "@/components";
+import { ModalProviderProps } from "@/lib";
+import SubscribeModal from "@/components/SubscribeModal";
 
-export const ModalProvider = () => {
+export const ModalProvider: React.FC<ModalProviderProps> = ({ products }) => {
+  // export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -16,6 +18,7 @@ export const ModalProvider = () => {
     <>
       <AuthModal />
       <UploadModal />
+      <SubscribeModal products={products} />
     </>
   );
 };

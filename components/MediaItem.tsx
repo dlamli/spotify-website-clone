@@ -1,11 +1,12 @@
 "use client";
 
-import { useLoadImage } from "@/hooks";
+import { useLoadImage, usePlayer } from "@/hooks";
 import { MediaItemProps } from "@/lib/types";
 import Image from "next/image";
 
 export const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
   const imgUrl = useLoadImage(data);
+  const player = usePlayer();
 
   const handleClick = () => {
     if (onClick) {
@@ -13,6 +14,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
     }
 
     //Default turn on player
+    return player.setId(data.id);
   };
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useUploadModal, useAuthModal, useOnPlay } from "@/hooks";
+import { useUploadModal, useAuthModal, useOnPlay, useSubscribeModal } from "@/hooks";
 import { useUser } from "@/hooks/useUser";
 import { LibraryProps } from "@/lib/types";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -8,14 +8,16 @@ import { TbPlaylist } from "react-icons/tb";
 import { MediaItem } from "@/components";
 
 export const Library: React.FC<LibraryProps> = ({ songs }) => {
+  const subscribeModal = useSubscribeModal();
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
-  const { user } = useUser();
+  const { user, subscription} = useUser();
 
   const { handlePlay } = useOnPlay(songs);
   const handleClick = () => {
     //Handle upload later
     if (!user) return authModal.onOpen();
+    if (!subscription) return subscribeModal.onOpen();
 
     return uploadModal.onOpen();
   };

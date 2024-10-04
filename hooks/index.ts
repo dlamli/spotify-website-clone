@@ -5,5 +5,6 @@ export * from "./useLoadImage";
 export * from "./useLoadSong";
 export * from "./useOnPlay";
 export * from "./usePlayer";
+export * from "./useSubscribeModal";
 export * from "./useUploadModal";
 export * from "./useUser";

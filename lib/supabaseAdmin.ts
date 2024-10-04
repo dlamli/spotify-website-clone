@@ -1,12 +1,13 @@
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
-import { Database } from "@/types_db";
 
+import { Database } from "@/types_db";
 import { stripe, toDateTime, type Price, type Product } from "@/lib";
 
 export const supabaseAdmin = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-  process.env.SUPABASE_SERVICE_ROLE_KEY || ""
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
+  // process.env.SUPABASE_SERVICE_ROLE_KEY || ""
 );
 
 const upsertProductRecord = async (product: Stripe.Product) => {
@@ -60,34 +61,23 @@ const createOrRetrieveCustomer = async ({
     .select("stripe_customer_id")
     .eq("id", uuid)
     .single();
-
-  if (error || data?.stripe_customer_id) {
-    const customerData: {
-      metadata: { supabaseUUID: string };
-      email?: string;
-    } = {
-      metadata: {
-        supabaseUUID: uuid,
-      },
-    };
-
+  if (error || !data?.stripe_customer_id) {
+    const customerData: { metadata: { supabaseUUID: string }; email?: string } =
+      {
+        metadata: {
+          supabaseUUID: uuid,
+        },
+      };
     if (email) customerData.email = email;
-
     const customer = await stripe.customers.create(customerData);
     const { error: supabaseError } = await supabaseAdmin
       .from("customers")
-      .insert({
-        id: uuid,
-        stripe_customer_id: customer.id,
-      });
-
-    if (supabaseError) {
-      throw supabaseError;
-    }
-
-    console.log(`✅ Customer created and inserted for: ${customer.id}`);
+      .insert([{ id: uuid, stripe_customer_id: customer.id }]);
+    if (supabaseError) throw supabaseError;
+    console.log(`New customer created and inserted for ${uuid}.`);
     return customer.id;
   }
+  return data.stripe_customer_id;
 };
 
 const copyBillingDetailsToCustomer = async (
