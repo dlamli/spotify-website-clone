@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FieldValues, set, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import uniqid from "uniqid";
@@ -92,8 +92,10 @@ export const UploadModal = () => {
       toast.success("Song uploaded successfully");
       reset();
       uploadModal.onClose();
-    } catch (error) {
-      toast.error("Something went wrong");
+    } catch (error: any) {
+      toast.error(
+        `Something went wrong while uploading the song: ${error.message}`
+      );
     } finally {
       setIsLoading(false);
     }

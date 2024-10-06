@@ -29,10 +29,9 @@ export type ListItemProps = {
 };
 
 // Button.tsx
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
   // Button Props ...
-}
+
 
 // Header.tsx
 export type HeaderProps = {
@@ -159,8 +158,7 @@ export type UploadModalStore = {
 };
 
 //Input.tsx
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export type Song = {
   id: string;

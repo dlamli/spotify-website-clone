@@ -4,7 +4,6 @@ import useDebounce from "@/hooks/useDebounce";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import qs from "query-string";
-import { url } from "inspector";
 import { Input } from "./Input";
 
 export const SearchInput = () => {
