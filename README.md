@@ -32,10 +32,15 @@
 ## <a name="features">🔋 Features</a>
 
 👉  Song upload and Stripe integration
+
 👉  Supabase and PostgreSQL Database handling
+
 👉  Full responsiveness for all devices
+
 👉  Credential authentication with Supabase
+
 👉  Github authentication integration
+
 👉  Client form validation and handling using react-hook-form
 
 ## <a name="quick-start">🤸 Quick Start</a>
