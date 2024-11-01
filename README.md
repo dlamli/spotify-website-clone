@@ -1,8 +1,4 @@
 <div align="center">
-<!--   <br />
-    <img src="https://i.ibb.co/Kqdv8j1/Image-from.png" alt="Project Banner">
-  <br /> -->
-
   <div>
     <img src="https://img.shields.io/badge/-Vite-black?style=for-the-badge&logoColor=white&logo=vite&color=646CFF" alt="vite" />
     <img src="https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=black" alt="nextjs" />
@@ -10,6 +6,9 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
+  <a href="https://spotify-website-clone-dlamli.vercel.app" target="_blank">
+    <img src="public/images/spotify-clone.png" alt="Spotify Clone Website" width="80%" />
+  </a>
   <h3 align="center">Spotify Website Clone</h3>
 
    <div align="center">
@@ -28,6 +27,8 @@
 - Vite
 - React.js
 - Tailwind CSS
+- Next.js
+- PostgreSQL
 
 ## <a name="features">🔋 Features</a>
 
